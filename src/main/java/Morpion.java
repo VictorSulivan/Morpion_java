@@ -28,11 +28,9 @@ public class Morpion {
             //  alors il vous montrera une erreur "Entrée invalide".
             try {
                 numInput = in.nextInt();
-                if (!(numInput > 0 && numInput <= 9)) {
+                if (!(numInput > 0 && numInput <= 9 )) {
                     System.out.println("Entré invalide; entre un nouveau nombre égale ou supérieur a 0 et inférieur ou égale a 9:");
                     continue;
-                }else{
-
                 }
             }
             catch (InputMismatchException e) {
@@ -42,8 +40,7 @@ public class Morpion {
 
             // Ce jeu a deux joueurs X et O.
             // Voici la logique pour décider du tour.
-            if (board[numInput - 1].equals(
-                    String.valueOf(numInput))) {
+            if (board[numInput - 1].equals(String.valueOf(numInput))) {
                 board[numInput - 1] = turn;
 
                 if (turn.equals("X")) {
