@@ -1,5 +1,9 @@
 // espace importation de fonctionnalité
+import java.awt.event.MouseAdapter;
 import java.util.*;
+import javax.swing.*;
+import java.awt.event.MouseEvent;
+
 public class Morpion {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -127,6 +131,32 @@ public class Morpion {
     }
     static void printBoard()
     {
+        JFrame frame = new JFrame("Morpion");
+        frame.setLayout(null);
+
+        JLabel[] labels = new JLabel[9];
+        for (int i = 0 ; i < 9; i++) {
+
+            labels[i] = new JLabel(""+i);
+            labels[i].setBounds((i % 3) * 100, (i / 3) * 100, 100, 100);
+            labels[i].setHorizontalAlignment(JLabel.CENTER);
+            labels[i].setVerticalAlignment(JLabel.CENTER);
+            frame.add(labels[i]);
+            final int index = i;
+            labels[i].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    labels[index].setText("X");
+                }
+            });
+
+        }
+
+        frame.pack();
+        frame.setSize(500, 500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
         System.out.println("|---|---|---|");
         System.out.println("| " + board[0] + " | "
                 + board[1] + " | " + board[2]
@@ -140,6 +170,9 @@ public class Morpion {
                 + board[7] + " | " + board[8]
                 + " |");
         System.out.println("|---|---|---|");
+
+
+
     }
 
     }
