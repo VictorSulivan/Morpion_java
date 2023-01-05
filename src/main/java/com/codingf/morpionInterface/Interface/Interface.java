@@ -1,15 +1,11 @@
-// espace importation de fonctionnalité
-import java.awt.event.MouseAdapter;
-import java.util.*;
+package com.codingf.morpionInterface.Interface;
+
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Morpion_Interface {
-    public static void main(String[] args) {
-        printBoard();
-        }
-
-    static void printBoard()
+public class Interface {
+    public static void printBoard()
     {
         JFrame frame = new JFrame("Morpion");
         frame.setLayout(null);
@@ -19,10 +15,13 @@ public class Morpion_Interface {
         final boolean[] joueur1 = {true};
         final boolean[] fin = {false};
 
+
+
+
         //DEBUT QUADRILLAGE VERTICAL 1
         JLabel[] quadrillageVertical1 = new JLabel[3];
         for (int qV1 = 0 ; qV1 < 3; qV1++) {
-            quadrillageVertical1[qV1] = new JLabel("|");
+            quadrillageVertical1[qV1] = new JLabel("│");
             quadrillageVertical1[qV1].setBounds((qV1 % 3) * 100, 0, 100, 100);
             frame.add(quadrillageVertical1[qV1]);
         }
@@ -31,7 +30,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE VERTICAL 2
         JLabel[] quadrillageVertical2 = new JLabel[3];
         for (int qV2 = 0 ; qV2 < 3; qV2++) {
-            quadrillageVertical2[qV2] = new JLabel("|");
+            quadrillageVertical2[qV2] = new JLabel("│");
             quadrillageVertical2[qV2].setBounds((qV2 % 3) * 100, 35, 100, 100);
             frame.add(quadrillageVertical2[qV2]);
         }
@@ -40,7 +39,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE VERTICAL 3
         JLabel[] quadrillageVertical3 = new JLabel[3];
         for (int qV3 = 0 ; qV3 < 3; qV3++) {
-            quadrillageVertical3[qV3] = new JLabel("|");
+            quadrillageVertical3[qV3] = new JLabel("│");
             quadrillageVertical3[qV3].setBounds((qV3 % 3) * 100, 70, 100, 100);
             frame.add(quadrillageVertical3[qV3]);
         }
@@ -49,7 +48,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE VERTICAL 4
         JLabel[] quadrillageVertical4 = new JLabel[4];
         for (int qV4 = 0 ; qV4 < 4; qV4++) {
-            quadrillageVertical4[qV4] = new JLabel("|");
+            quadrillageVertical4[qV4] = new JLabel("│");
             quadrillageVertical4[qV4].setBounds((qV4 % 3) * 100, 100, 100, 100);
             frame.add(quadrillageVertical4[qV4]);
         }
@@ -58,7 +57,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE VERTICAL 5
         JLabel[] quadrillageVertical5 = new JLabel[5];
         for (int qV5 = 0 ; qV5 < 5; qV5++) {
-            quadrillageVertical5[qV5] = new JLabel("|");
+            quadrillageVertical5[qV5] = new JLabel("│");
             quadrillageVertical5[qV5].setBounds((qV5 % 3) * 100, 135, 100, 100);
             frame.add(quadrillageVertical5[qV5]);
         }
@@ -67,7 +66,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE VERTICAL 6
         JLabel[] quadrillageVertical6 = new JLabel[6];
         for (int qV6 = 0 ; qV6 < 6; qV6++) {
-            quadrillageVertical6[qV6] = new JLabel("|");
+            quadrillageVertical6[qV6] = new JLabel("│");
             quadrillageVertical6[qV6].setBounds((qV6 % 3) * 100, 170, 100, 100);
             frame.add(quadrillageVertical6[qV6]);
         }
@@ -76,7 +75,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE VERTICAL 7
         JLabel[] quadrillageVertical7 = new JLabel[7];
         for (int qV7 = 0 ; qV7 < 7; qV7++) {
-            quadrillageVertical7[qV7] = new JLabel("|");
+            quadrillageVertical7[qV7] = new JLabel("│");
             quadrillageVertical7[qV7].setBounds((qV7 % 3) * 100, 200, 100, 100);
             frame.add(quadrillageVertical7[qV7]);
         }
@@ -87,7 +86,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE HORIZONTAL 1
         JLabel[] quadrillageHorizontal1 = new JLabel[3];
         for (int qV1 = 0 ; qV1 < 3; qV1++) {
-            quadrillageHorizontal1[qV1] = new JLabel("-------------");
+            quadrillageHorizontal1[qV1] = new JLabel("────────");
             quadrillageHorizontal1[qV1].setBounds((qV1 % 3) * 100, 50, 1000, 100);
             frame.add(quadrillageHorizontal1[qV1]);
         }
@@ -96,7 +95,7 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE HORIZONTAL 2
         JLabel[] quadrillageHorizontal2 = new JLabel[3];
         for (int qV2 = 0 ; qV2 < 3; qV2++) {
-            quadrillageHorizontal2[qV2] = new JLabel("-------------");
+            quadrillageHorizontal2[qV2] = new JLabel("────────");
             quadrillageHorizontal2[qV2].setBounds((qV2 % 3) * 100, 150, 1000, 100);
             frame.add(quadrillageHorizontal2[qV2]);
         }
@@ -105,19 +104,19 @@ public class Morpion_Interface {
         //DEBUT QUADRILLAGE HORIZONTAL 3
         JLabel[] quadrillageHorizontal3 = new JLabel[3];
         for (int qV3 = 0 ; qV3 < 3; qV3++) {
-            quadrillageHorizontal3[qV3] = new JLabel("-------------");
+            quadrillageHorizontal3[qV3] = new JLabel("────────");
             quadrillageHorizontal3[qV3].setBounds((qV3 % 3) * 100, 230, 1000, 100);
             frame.add(quadrillageHorizontal3[qV3]);
         }
         //FIN QUADRILLAGE HORIZONTAL 3
 
 
-        
-        
-        
-        
-        JLabel[] cases = new JLabel[10];
-        for (int i = 0 ; i < 10; i++) {
+
+
+
+
+        JLabel[] cases = new JLabel[11];
+        for (int i = 0 ; i < 11; i++) {
 
             cases[i] = new JLabel(""+i);
             cases[i].setBounds((i % 3) * 100, (i / 3) * 100, 100, 100);
@@ -126,18 +125,25 @@ public class Morpion_Interface {
             frame.add(cases[i]);
             final int index = i;
             if (i==9) {
-                cases[9].setText("PARTIE EN COURS");
-                cases[9].setBounds(0, 200, 300, 200);
+                cases[9].setText("JOUEUR O DOIT JOUER");
+                cases[9].setBounds(35, 270, 300, 50);
+            }
+            if (i==10){
+                cases[10].setText("Recommencer");
+                cases[10].setBounds(0, 235, 300, 200);
             }
             cases[i].addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (joueur1[0] == true && index != 9 && cases[index].getText() != "X" && cases[index].getText() != "O" && fin[0] == false) {
-                        cases[index].setText("X");
-                        joueur1[0] = false;
-                    } else if (joueur1[0] == false && index != 9 && cases[index].getText() != "X" && cases[index].getText() != "O" && fin[0] == false) {
                         cases[index].setText("O");
+                        joueur1[0] = false;
+                        cases[9].setText("JOUEUR X DOIT JOUER");
+
+                    } else if (joueur1[0] == false && index != 9 && cases[index].getText() != "X" && cases[index].getText() != "O" && fin[0] == false) {
+                        cases[index].setText("X");
                         joueur1[0] = true;
+                        cases[9].setText("JOUEUR O DOIT JOUER");
                     }
 
                     //CONDITION DE VICTOIRE À L'HORIZONTALE
@@ -197,6 +203,12 @@ public class Morpion_Interface {
                         fin[0] = true;
 
                     }
+
+
+                    if (index==10){
+                        printBoard();
+                        JOptionPane.showMessageDialog(null, "La partie recommence");
+                    }
                     //CONDITION DE VICTOIRE EN DIAGONALE
 
 
@@ -205,8 +217,11 @@ public class Morpion_Interface {
 
         }
 
+
+
+
         frame.pack();
-        frame.setSize(500, 500);
+        frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
@@ -214,7 +229,5 @@ public class Morpion_Interface {
     }
 
 }
-
-
 
 
