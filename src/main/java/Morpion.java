@@ -131,31 +131,6 @@ public class Morpion {
     }
     static void printBoard()
     {
-        JFrame frame = new JFrame("Morpion");
-        frame.setLayout(null);
-
-        JLabel[] labels = new JLabel[9];
-        for (int i = 0 ; i < 9; i++) {
-
-            labels[i] = new JLabel(""+i);
-            labels[i].setBounds((i % 3) * 100, (i / 3) * 100, 100, 100);
-            labels[i].setHorizontalAlignment(JLabel.CENTER);
-            labels[i].setVerticalAlignment(JLabel.CENTER);
-            frame.add(labels[i]);
-            final int index = i;
-            labels[i].addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    labels[index].setText("X");
-                }
-            });
-
-        }
-
-        frame.pack();
-        frame.setSize(500, 500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
 
         System.out.println("|---|---|---|");
         System.out.println("| " + board[0] + " | "
