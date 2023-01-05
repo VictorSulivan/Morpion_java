@@ -1,13 +1,13 @@
 // espace importation de fonctionnalité
-import com.sun.jdi.IntegerValue;
-
-import java.util.*;
+/*import java.util.*;
 public class Morpion {
+    int[][] matrix;
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        board = new String[9];
         turn = "X";
         String vainqueur = null;
+
 
         for (int a = 0; a < 9; a++) {
             board[a] = String.valueOf(a + 1);
@@ -17,7 +17,7 @@ public class Morpion {
         printBoard();
 
         System.out.println("X est désigner pour commencer la partie.");
-        System.out.println("Entrez le numéro de la case que vous choisissez pour placer X juste........ici:");
+        System.out.print("Entrez le nombre de lignes/colonnes de la matrice: ");
 
         while (vainqueur == null) {
             int numInput;
@@ -130,22 +130,47 @@ public class Morpion {
     static void printBoard()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Entrez le nombre de lignes/colonnes de la matrice: ");
-        int taille = sc.nextInt();
+        int taille = sc.nextInt();*/
 
         // crée une matrice
-        int[][] matrix=new int  [taille][taille];
+
+        //matrix=new int  [taille][taille];
         //initialise chaque élément de la matrice à 0
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                int signeCase=0;
-                matrix[i][j] = signeCase + signeCase;
-                System.out.print(matrix[i][j] + " ");
+        //for (int i = 0; i < matrix.length; i++) {
+            //for (int j = 0; j < matrix.length; j++) {
+              //  int signeCase=0;
+                //matrix[i][j] = signeCase + signeCase;
+                /*System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
         System.out.println();
 
+    }*/
+    /*static void select(){
+        if (turn=="X"){
+            Scanner lineur = new Scanner(System.in);
+            System.out.println("Entrer la ligne ou vous souhaitez jouer: ");
+            int ligne = lineur.nextInt();
+
+            Scanner column = new Scanner(System.in);
+            System.out.println("Entrer la column ou vous souhaitez jouer: ");
+            int colonne = column.nextInt();
+
+            matrix[ligne][colonne] = Integer. valueOf(turn);
+            turn="Y";
+
+        } else if (turn=="Y") {
+            Scanner lineur = new Scanner(System.in);
+            System.out.println("Entrer la ligne ou vous souhaitez jouer: ");
+            int ligne = lineur.nextInt();
+
+            Scanner column = new Scanner(System.in);
+            System.out.println("Entrer la column ou vous souhaitez jouer: ");
+            int colonne = column.nextInt();
+
+            matrix[ligne][colonne] = Integer. valueOf(turn);
+            turn="X";
     }
 
-}
+}}*/
