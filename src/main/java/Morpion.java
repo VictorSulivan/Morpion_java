@@ -1,4 +1,6 @@
 // espace importation de fonctionnalité
+import com.sun.jdi.IntegerValue;
+
 import java.util.*;
 public class Morpion {
     public static void main(String[] args) {
@@ -29,6 +31,8 @@ public class Morpion {
                 if (!(numInput > 0 && numInput <= 9)) {
                     System.out.println("Entré invalide; entre un nouveau nombre égale ou supérieur a 0 et inférieur ou égale a 9:");
                     continue;
+                }else{
+
                 }
             }
             catch (InputMismatchException e) {
@@ -53,9 +57,9 @@ public class Morpion {
                 vainqueur = checkWinner();
             }
             else {
-                System.out.println("L'emplacement n'est pas vide. veuillez en choisir un autre(vous pouvez visualiser au dessus les mplacements deja selectionner");
-            }
-        }
+                System.out.println("L'emplacement n'est pas vide. veuillez en choisir un autre(vous pouvez visualiser au dessus les placements deja selectionner");
+            }}
+
 
         // Si personne n'a gagné ou perdu que l'on est donc en situation de match nul entre les joueurs X et O.
         // alors voici la logique pour imprimer "nul".
@@ -65,7 +69,7 @@ public class Morpion {
 
         // Message de victoire
         else {
-            System.out.println("Félicitations! Le joueur " + vainqueur + "est le vainqueur!");
+            System.out.println("Félicitations! Le joueur " + vainqueur + " est le vainqueur!");
         }
     }
     static String[] board;
