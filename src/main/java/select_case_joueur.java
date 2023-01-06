@@ -11,19 +11,10 @@ public class select_case_joueur {
     static int turn = 1;
     static int vainqueur = 0;
     public static void main(String[] args) {
-
-
-
-
         System.out.println("Bienvenue sur le jeux du morpion");
         createBoard();
         printBoard();
-
-
         while(vainqueur==0){
-
-
-
             if (turn==1){
                 Scanner lineur = new Scanner(System.in);
                 System.out.println("Entrer la ligne ou vous souhaitez jouer: "+turn);
@@ -33,11 +24,20 @@ public class select_case_joueur {
                 System.out.println("Entrer la column ou vous souhaitez jouer: "+turn);
                 int colonne = column.nextInt();
 
-                matrix[ligne][colonne] = turn;
-                printBoard();
-                checkWinnerline();
-                turn=2;
-
+                //if(!ligne.matches("\\d+")||Character.isDigit(colonne)){
+                    if (matrix[ligne][colonne] == 0) {
+                        matrix[ligne][colonne] = turn;
+                        printBoard();
+                        checkWinnerline();
+                        turn=2;
+                    } else {
+                        System.out.println("il existe deja un joueur a cette endroit, veuillez vous placez autre part dans le tableau joueur2");
+                        printBoard();
+                    }
+                //} else {
+                    //System.out.println("tu n'as pas rentré de chiffre");
+                    //printBoard();
+                //}
 
             } else if (turn==2) {
                 Scanner lineur = new Scanner(System.in);
@@ -48,20 +48,32 @@ public class select_case_joueur {
                 System.out.println("Entrer la column ou vous souhaitez jouer: "+turn);
                 int colonne = column.nextInt();
 
-                matrix[ligne][colonne] = turn;
-                printBoard();
-                checkWinnerline();
-                turn = 1;
-
+                    if(Character.isDigit(ligne)||Character.isDigit(colonne)){
+                        if (matrix[ligne][colonne] == 0) {
+                            matrix[ligne][colonne] = turn;
+                            printBoard();
+                            checkWinnerline();
+                            turn = 1;
+                        } else {
+                            System.out.println("il existe deja un joueur veuillez vous placez autre part dans le tableau joueur2");
+                            printBoard();
+                        }
+                    } else {
+                        System.out.println(" freritos c pas un chifre");
+                        printBoard();
+                    }
             }
-        }
 
+        }
     }
+
+
     /*if (matrix[i][j] == turn) {
 
     }*/
     static void checkWinnerline() {
         int longueur = matrix.length;
+        int longueur2= matrix.length-1;
 
         //check horizontal
         for (int i = 0; i < longueur; i++) {
@@ -85,7 +97,7 @@ public class select_case_joueur {
             for (int j = 0; j < longueur; j++) {
 
                 list.add(matrix[j][i]);
-                System.out.println(list);
+                //System.out.println(list);
 
             }
             long veri = list.stream().distinct().count();
@@ -94,6 +106,40 @@ public class select_case_joueur {
                 vainqueur = list.get(turn);
             }
         }
+
+        //check diagonal en haut a gauche jusqu'a en bas a droite
+        for (int i = 0; i < longueur; i++) {
+            List<Integer> list = new ArrayList<Integer>();
+            for (int j = 0; j < longueur; j++) {
+
+                list.add(matrix[j][j]);
+                //System.out.println(list);
+
+            }
+            long veri = list.stream().distinct().count();
+            if (veri == 1 && (list.get(0) == 1 || list.get(0) == 2)) {
+                System.out.println("joueur " + list.get(0) + " ganger !!!!!!!!");
+                vainqueur = list.get(turn);
+            }
+        }
+
+        //check diagonal en haut a droite jusqu'a en bas a gauche
+        for (int i = 0; i < 1; i++) {
+            List<Integer> list = new ArrayList<Integer>();
+            for (int j = 0; j < longueur; j++) {
+
+                list.add(matrix[j][longueur2-j]);
+                System.out.println(list);
+
+            }
+            long veri = list.stream().distinct().count();
+            if (veri == 1 && (list.get(0) == 1 || list.get(0) == 2)) {
+                System.out.println("joueur " + list.get(0) + " gagner !!!!!!!!");
+                vainqueur = list.get(turn);
+            }
+        }
+
+
     }
 
     static void createBoard() {
