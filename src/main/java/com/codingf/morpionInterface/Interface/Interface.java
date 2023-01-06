@@ -3,8 +3,28 @@ package com.codingf.morpionInterface.Interface;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Interface {
+
+    private static boolean winCondition1;
+    private static boolean winCondition2;
+    private static boolean winCondition3;
+    private static boolean winCondition4;
+    private static boolean winCondition5;
+    private static boolean winCondition6;
+    private static boolean winCondition7;
+    private static boolean winCondition8;
+
+    private static boolean winCondition9;
+
+
+    private static boolean winX;
+    private static boolean winO;
+
+
     public static void printBoard()
     {
         JFrame frame = new JFrame("Morpion");
@@ -16,8 +36,18 @@ public class Interface {
         final boolean[] fin = {false};
         final boolean[] egalité = {true};
 
+        winCondition1 =  false;
+        winCondition2 =  false ;
+        winCondition3 =  false ;
+        winCondition4 =  false ;
+        winCondition5 =  false ;
+        winCondition6 =  false ;
+        winCondition7 =  false ;
+        winCondition8 =  false ;
+        winCondition9 =  false ;
 
-
+        winX =  false ;
+        winO =  false ;
 
 
         //DEBUT QUADRILLAGE VERTICAL 1
@@ -153,6 +183,8 @@ public class Interface {
                         s[0]++;
                     }
 
+
+
                     //CONDITION DE VICTOIRE À L'HORIZONTALE
                     if (cases[0].getText().equals(cases[1].getText()) && cases[1].getText().equals(cases[2].getText()) && !cases[0].getText().equals("") && fin[0] == false) {
                         System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
@@ -163,6 +195,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[0].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition1 = true;
+                        if (cases[0].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
 
 
@@ -176,6 +219,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[3].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition2 = true;
+                        if (cases[3].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                     if (cases[6].getText().equals(cases[7].getText()) && cases[7].getText().equals(cases[8].getText()) && !cases[6].getText().equals("") && fin[0] == false) {
@@ -187,6 +241,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[6].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition3 = true;
+                        if (cases[6].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                     //CONDITION DE VICTOIRE À L'HORIZONTALE
@@ -201,6 +266,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[0].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition4 = true;
+                        if (cases[0].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                     if (cases[1].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[7].getText()) && !cases[1].getText().equals("") && fin[0] == false) {
@@ -212,6 +288,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[1].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition5 = true;
+                        if (cases[1].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                     if (cases[2].getText().equals(cases[5].getText()) && cases[5].getText().equals(cases[8].getText()) && !cases[2].getText().equals("") && fin[0] == false) {
@@ -223,6 +310,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[2].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition6 = true;
+                        if (cases[2].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                     //CONDITION DE VICTOIRE À LA VERTICALE
@@ -233,9 +331,22 @@ public class Interface {
                         System.out.println("                                    [0] [ ] [ ]");
                         System.out.println("                                    [ ] [4] [ ]");
                         System.out.println("                                    [ ] [ ] [8]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[0].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition7 = true;
+                        if (cases[0].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
                     }
                     if (cases[2].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[6].getText()) && !cases[2].getText().equals("") && fin[0] == false) {
                         System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
@@ -246,6 +357,17 @@ public class Interface {
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[2].getText() + " a gagné !");
                         fin[0] = true;
                         egalité[0] = false;
+                        winCondition8 = true;
+                        if (cases[2].getText() == "X"){
+                            winX = true;
+                        } else {
+                            winO = true;
+                        }
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     }
                     //CONDITION DE VICTOIRE EN DIAGONALE
 
@@ -258,6 +380,12 @@ public class Interface {
 
                         cases[9].setText("PARTIE FINIE / ÉGALITÉ GRILLE PLEINE");
                         fin[0] = true;
+                        winCondition9 = true;
+                        try {
+                            logs();
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                     }
                     //ÉGALITÉ GRILLE PLEINE
@@ -278,6 +406,7 @@ public class Interface {
 
 
 
+
         frame.pack();
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -285,7 +414,271 @@ public class Interface {
 
 
     }
+    public static void logs()
+            throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/florianrichet/Desktop/01-Ecole/05-Java/Morpion_Java/src/main/java/com/codingf/morpionInterface/logs.txt", true));
+
+        //WIN CONDITION 1
+        if (winCondition1 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [0] [1] [2]");
+                String str3 =("                                                                                                       [ ] [ ] [ ]");
+                String str4 =("                                                                                                       [ ] [ ] [ ]");
+                String str5 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+                writer.append(str5);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [0] [1] [2]");
+                String str3 =("                                                                                                       [ ] [ ] [ ]");
+                String str4 =("                                                                                                       [ ] [ ] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+        }
+        //WIN CONDITION 1
+
+        //WIN CONDITION 2
+        if (winCondition2 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [ ] [ ]");
+                String str3 =("                                                                                                       [3] [4] [5]");
+                String str4 =("                                                                                                       [ ] [ ] [ ]"                                                                                                       );
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [ ] [ ]");
+                String str3 =("                                                                                                       [3] [4] [5]");
+                String str4 =("                                                                                                       [ ] [ ] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+        }
+        //WIN CONDITION 2
+
+        //WIN CONDITION 3
+        if (winCondition3 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [ ] [ ]");
+                String str3 =("                                                                                                       [ ] [ ] [ ]");
+                String str4 =("                                                                                                       [6] [7] [8]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [ ] [ ]");
+                String str3 =("                                                                                                       [ ] [ ] [ ]");
+                String str4 =("                                                                                                       [6] [7] [8]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+
+            }
+        }
+        //WIN CONDITION 3
+
+        //WIN CONDITION 4
+        if (winCondition4 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [0] [ ] [ ]");
+                String str3 =("                                                                                                       [3] [ ] [ ]");
+                String str4 =("                                                                                                       [6] [ ] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [0] [ ] [ ]");
+                String str3 =("                                                                                                       [3] [ ] [ ]");
+                String str4 =("                                                                                                       [6] [ ] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+
+            }
+        }
+        //WIN CONDITION 4
+
+        //WIN CONDITION 5
+        if (winCondition5 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [1] [ ]");
+                String str3 =("                                                                                                       [ ] [4] [ ]");
+                String str4 =("                                                                                                       [ ] [7] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [1] [ ]");
+                String str3 =("                                                                                                       [ ] [4] [ ]");
+                String str4 =("                                                                                                       [ ] [7] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+
+            }
+        }
+        //WIN CONDITION 5
+
+        //WIN CONDITION 6
+        if (winCondition6 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [ ] [2]");
+                String str3 =("                                                                                                       [ ] [ ] [5]");
+                String str4 =("                                                                                                       [ ] [ ] [8]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [ ] [ ] [2]");
+                String str3 =("                                                                                                       [ ] [ ] [5]");
+                String str4 =("                                                                                                       [ ] [ ] [8]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+
+            }
+        }
+        //WIN CONDITION 6
+
+        //WIN CONDITION 7
+        if (winCondition7 == true){
+            if (winX == true){
+                String str1 =("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 =("                                                                    [0] [ ] [ ]");
+                String str3 =("                                                                                                       [ ] [4] [ ]");
+                String str4 =("                                                                                                       [ ] [ ] [8]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true){
+                String str1 =("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 =("                                                                    [0] [ ] [ ]");
+                String str3 =("                                                                                                       [ ] [4] [ ]");
+                String str4 =("                                                                                                       [ ] [ ] [8]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+
+            }
+        }
+        //WIN CONDITION 7
+
+        //WIN CONDITION 8
+        if (winCondition8 == true) {
+            if (winX == true) {
+                String str1 = ("VICTOIRE JOUEUR X SUR LES CASES -->");
+                String str2 = ("                                                                    [ ] [ ] [2]");
+                String str3 = ("                                                                                                       [ ] [4] [ ]");
+                String str4 = ("                                                                                                       [6] [ ] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+            }
+            if (winO == true) {
+                String str1 = ("VICTOIRE JOUEUR O SUR LES CASES -->");
+                String str2 = ("                                                                    [ ] [ ] [2]");
+                String str3 = ("                                                                                                       [ ] [4] [ ]");
+                String str4 = ("                                                                                                       [6] [ ] [ ]                                                                                                       ");
+
+                writer.append(str1);
+                writer.append(str2);
+                writer.append(str3);
+                writer.append(str4);
+
+
+            }
+        }
+        //WIN CONDITION 8
+
+        //ÉGALITÉ
+        if (winCondition9 == true){
+            String str1 =("ÉGALITÉ GRILLE PLEINE -->                ");
+            String str2 =("                                                                    [ ] [ ] [ ]");
+            String str3 =("                                                                                                       [ ] [ ] [ ]");
+            String str4 =("                                                                                                       [ ] [ ] [ ]                                                                                                       ");
+
+            writer.append(str1);
+            writer.append(str2);
+            writer.append(str3);
+            writer.append(str4);
+
+            }
+        //ÉGALITÉ
+        writer.append(' ');
+        writer.close();
+    }
+
 
 }
+
+
 
 
