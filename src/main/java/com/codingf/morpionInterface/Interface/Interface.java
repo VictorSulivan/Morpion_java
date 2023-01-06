@@ -104,22 +104,21 @@ public class Interface {
         JLabel[] cases = new JLabel[11];
         final int[] s = {0};
         for (final int[] i = {0}; i[0] < 11; i[0]++) {
+            //CRÉER LA GRILLE
             cases[i[0]] = new JLabel(""+ i[0]);
             cases[i[0]].setBounds((i[0] % 3) * 100, (i[0] / 3) * 100, 100, 100);
             cases[i[0]].setHorizontalAlignment(JLabel.CENTER);
             cases[i[0]].setVerticalAlignment(JLabel.CENTER);
             frame.add(cases[i[0]]);
-            if (i[0] == 10){
-                System.out.println("TEST PASSE TRUE");
-                test = true;
-            }
 
             final int[] index = {i[0]};
             if (i[0] ==9) {
+                //POSITIONNE INDÉPENDAMENT LES PHRASES GUIDES
                 cases[9].setText("JOUEUR O DOIT JOUER");
                 cases[9].setBounds(35, 270, 300, 50);
             }
             if (i[0] ==10){
+                //POSITIONNE INDÉPENDAMENT LE BOUTON RECOMMENCER
                 cases[10].setText("Recommencer");
                 cases[10].setBounds(0, 235, 300, 200);
             }
@@ -127,6 +126,7 @@ public class Interface {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (joueur1[0] == true && index[0] != 9 && cases[index[0]].getText() != "X" && cases[index[0]].getText() != "O" && fin[0] == false) {
+                        //PHRASE QUI GUIDE LE JOUEUR ENTRE LES PHASES DE CLIQUES
                         cases[index[0]].setText("O");
                         System.out.println("//O PLACÉ");
                         joueur1[0] = false;
@@ -134,6 +134,7 @@ public class Interface {
                         s[0]++;
 
                     } else if (joueur1[0] == false && index[0] != 9 && cases[index[0]].getText() != "X" && cases[index[0]].getText() != "O" && fin[0] == false) {
+                        //PHRASE QUI GUIDE LE JOUEUR ENTRE LES PHASES DE CLIQUES
                         cases[index[0]].setText("X");
                         System.out.println("\\\\X PLACÉ");
                         joueur1[0] = true;
@@ -364,7 +365,7 @@ public class Interface {
 
 
 
-
+        //PARAMETRE DE LA FENETRE
         frame.pack();
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -373,6 +374,7 @@ public class Interface {
 
     }
     public static void logs()
+            //CLASSE POUR LES LOGS
             throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("logs.txt", true));
 
@@ -630,6 +632,8 @@ public class Interface {
 
             }
         //ÉGALITÉ
+
+
         writer.append(' ');
         writer.close();
     }
