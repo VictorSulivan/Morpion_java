@@ -24,6 +24,7 @@ public class Interface {
     private static boolean winX;
     private static boolean winO;
 
+    private static boolean test;
 
     public static void printBoard()
     {
@@ -35,6 +36,8 @@ public class Interface {
         final boolean[] joueur1 = {true};
         final boolean[] fin = {false};
         final boolean[] egalité = {true};
+
+        test =  true ;
 
         winCondition1 =  false;
         winCondition2 =  false ;
@@ -49,98 +52,49 @@ public class Interface {
         winX =  false ;
         winO =  false ;
 
+        int y1 = 0;
+        int y2 = 0;
+        int y3 = 0;
+        int y4 = 0;
 
-        //DEBUT QUADRILLAGE VERTICAL 1
-        JLabel[] quadrillageVertical1 = new JLabel[3];
-        for (int qV1 = 0 ; qV1 < 3; qV1++) {
-            quadrillageVertical1[qV1] = new JLabel("│");
-            quadrillageVertical1[qV1].setBounds((qV1 % 3) * 100, 0, 100, 100);
-            frame.add(quadrillageVertical1[qV1]);
-        }
-        //FIN QUADRILLAGE VERTICAL 1
+        int xy1 = 50;
+
+
 
         //DEBUT QUADRILLAGE VERTICAL 2
-        JLabel[] quadrillageVertical2 = new JLabel[3];
-        for (int qV2 = 0 ; qV2 < 3; qV2++) {
+        JLabel[] quadrillageVertical2 = new JLabel[18];
+        for (int qV2 = 0 ; qV2 < 18; qV2++) {
             quadrillageVertical2[qV2] = new JLabel("│");
-            quadrillageVertical2[qV2].setBounds((qV2 % 3) * 100, 35, 100, 100);
+            quadrillageVertical2[qV2].setBounds(100, y2, 100, 100);
             frame.add(quadrillageVertical2[qV2]);
+            y2 = y2 + 13;
         }
         //FIN QUADRILLAGE VERTICAL 2
 
         //DEBUT QUADRILLAGE VERTICAL 3
-        JLabel[] quadrillageVertical3 = new JLabel[3];
-        for (int qV3 = 0 ; qV3 < 3; qV3++) {
+        JLabel[] quadrillageVertical3 = new JLabel[18];
+        for (int qV3 = 0 ; qV3 < 18; qV3++) {
             quadrillageVertical3[qV3] = new JLabel("│");
-            quadrillageVertical3[qV3].setBounds((qV3 % 3) * 100, 70, 100, 100);
+            quadrillageVertical3[qV3].setBounds(200, y3, 100, 100);
             frame.add(quadrillageVertical3[qV3]);
+            y3 = y3 + 13;
         }
         //FIN QUADRILLAGE VERTICAL 3
 
-        //DEBUT QUADRILLAGE VERTICAL 4
-        JLabel[] quadrillageVertical4 = new JLabel[4];
-        for (int qV4 = 0 ; qV4 < 4; qV4++) {
-            quadrillageVertical4[qV4] = new JLabel("│");
-            quadrillageVertical4[qV4].setBounds((qV4 % 3) * 100, 100, 100, 100);
-            frame.add(quadrillageVertical4[qV4]);
-        }
-        //FIN QUADRILLAGE VERTICAL 4
-
-        //DEBUT QUADRILLAGE VERTICAL 5
-        JLabel[] quadrillageVertical5 = new JLabel[5];
-        for (int qV5 = 0 ; qV5 < 5; qV5++) {
-            quadrillageVertical5[qV5] = new JLabel("│");
-            quadrillageVertical5[qV5].setBounds((qV5 % 3) * 100, 135, 100, 100);
-            frame.add(quadrillageVertical5[qV5]);
-        }
-        //FIN QUADRILLAGE VERTICAL 5
-
-        //DEBUT QUADRILLAGE VERTICAL 6
-        JLabel[] quadrillageVertical6 = new JLabel[6];
-        for (int qV6 = 0 ; qV6 < 6; qV6++) {
-            quadrillageVertical6[qV6] = new JLabel("│");
-            quadrillageVertical6[qV6].setBounds((qV6 % 3) * 100, 170, 100, 100);
-            frame.add(quadrillageVertical6[qV6]);
-        }
-        //FIN QUADRILLAGE VERTICAL 6
-
-        //DEBUT QUADRILLAGE VERTICAL 7
-        JLabel[] quadrillageVertical7 = new JLabel[7];
-        for (int qV7 = 0 ; qV7 < 7; qV7++) {
-            quadrillageVertical7[qV7] = new JLabel("│");
-            quadrillageVertical7[qV7].setBounds((qV7 % 3) * 100, 200, 100, 100);
-            frame.add(quadrillageVertical7[qV7]);
-        }
-        //FIN QUADRILLAGE VERTICAL 7
 
 
 
         //DEBUT QUADRILLAGE HORIZONTAL 1
-        JLabel[] quadrillageHorizontal1 = new JLabel[3];
-        for (int qV1 = 0 ; qV1 < 3; qV1++) {
-            quadrillageHorizontal1[qV1] = new JLabel("────────");
-            quadrillageHorizontal1[qV1].setBounds((qV1 % 3) * 100, 50, 1000, 100);
+        JLabel[] quadrillageHorizontal1 = new JLabel[2];
+        for (int qV1 = 0 ; qV1 < 2; qV1++) {
+            quadrillageHorizontal1[qV1] = new JLabel("───────────────────────");
+            quadrillageHorizontal1[qV1].setBounds(6, xy1, 1000, 100);
             frame.add(quadrillageHorizontal1[qV1]);
+            xy1 = xy1 + 100;
         }
         //FIN QUADRILLAGE HORIZONTAL 1
 
-        //DEBUT QUADRILLAGE HORIZONTAL 2
-        JLabel[] quadrillageHorizontal2 = new JLabel[3];
-        for (int qV2 = 0 ; qV2 < 3; qV2++) {
-            quadrillageHorizontal2[qV2] = new JLabel("────────");
-            quadrillageHorizontal2[qV2].setBounds((qV2 % 3) * 100, 150, 1000, 100);
-            frame.add(quadrillageHorizontal2[qV2]);
-        }
-        //FIN QUADRILLAGE HORIZONTAL 2
 
-        //DEBUT QUADRILLAGE HORIZONTAL 3
-        JLabel[] quadrillageHorizontal3 = new JLabel[3];
-        for (int qV3 = 0 ; qV3 < 3; qV3++) {
-            quadrillageHorizontal3[qV3] = new JLabel("────────");
-            quadrillageHorizontal3[qV3].setBounds((qV3 % 3) * 100, 230, 1000, 100);
-            frame.add(quadrillageHorizontal3[qV3]);
-        }
-        //FIN QUADRILLAGE HORIZONTAL 3
 
 
 
@@ -150,12 +104,16 @@ public class Interface {
         JLabel[] cases = new JLabel[11];
         final int[] s = {0};
         for (final int[] i = {0}; i[0] < 11; i[0]++) {
-
             cases[i[0]] = new JLabel(""+ i[0]);
             cases[i[0]].setBounds((i[0] % 3) * 100, (i[0] / 3) * 100, 100, 100);
             cases[i[0]].setHorizontalAlignment(JLabel.CENTER);
             cases[i[0]].setVerticalAlignment(JLabel.CENTER);
             frame.add(cases[i[0]]);
+            if (i[0] == 10){
+                System.out.println("TEST PASSE TRUE");
+                test = true;
+            }
+
             final int[] index = {i[0]};
             if (i[0] ==9) {
                 cases[9].setText("JOUEUR O DOIT JOUER");
@@ -416,7 +374,7 @@ public class Interface {
     }
     public static void logs()
             throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/florianrichet/Desktop/01-Ecole/05-Java/Morpion_Java/src/main/java/com/codingf/morpionInterface/logs.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("logs.txt", true));
 
         //WIN CONDITION 1
         if (winCondition1 == true){
