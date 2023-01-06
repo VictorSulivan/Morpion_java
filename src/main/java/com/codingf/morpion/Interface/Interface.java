@@ -1,4 +1,4 @@
-package com.codingf.morpionInterface.Interface;
+package com.codingf.morpion.Interface;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
