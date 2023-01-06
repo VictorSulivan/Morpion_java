@@ -8,47 +8,44 @@ public class select_case_joueur {
 
     static int matrix[][];
     static boolean suivie=true;
+
+    static boolean Égalité = false;
+    static boolean nonÉgalité = false;
+
     static int turn = 1;
     static int vainqueur = 0;
+
+    static int tkt = 0;
+
     public static void main(String[] args) {
         System.out.println("Bienvenue sur le jeux du morpion");
         createBoard();
         printBoard();
         while(vainqueur==0){
-            if (turn==1){
+            if (turn==1) {
                 Scanner lineur = new Scanner(System.in);
-                System.out.println("Entrer la ligne ou vous souhaitez jouer: "+turn);
+                System.out.println("Entrer la ligne ou vous souhaitez jouer: " + turn);
                 int ligne = lineur.nextInt();
-
                 Scanner column = new Scanner(System.in);
-                System.out.println("Entrer la column ou vous souhaitez jouer: "+turn);
+                System.out.println("Entrer la column ou vous souhaitez jouer: " + turn);
                 int colonne = column.nextInt();
 
-                //if(!ligne.matches("\\d+")||Character.isDigit(colonne)){
-                    if (matrix[ligne][colonne] == 0) {
-                        matrix[ligne][colonne] = turn;
-                        printBoard();
-                        checkWinnerline();
-                        turn=2;
-                    } else {
-                        System.out.println("il existe deja un joueur a cette endroit, veuillez vous placez autre part dans le tableau joueur2");
-                        printBoard();
-                    }
-                //} else {
-                    //System.out.println("tu n'as pas rentré de chiffre");
-                    //printBoard();
-                //}
-
+                if (matrix[ligne][colonne] == 0) {
+                    matrix[ligne][colonne] = turn;
+                    printBoard();
+                    checkWinnerline();
+                    turn = 2;
+                } else {
+                    System.out.println("il existe deja un joueur a cette endroit, veuillez vous placez autre part dans le tableau joueur2");
+                    printBoard();
+                }
             } else if (turn==2) {
                 Scanner lineur = new Scanner(System.in);
                 System.out.println("Entrer la ligne ou vous souhaitez jouer: "+turn);
                 int ligne = lineur.nextInt();
-
                 Scanner column = new Scanner(System.in);
                 System.out.println("Entrer la column ou vous souhaitez jouer: "+turn);
                 int colonne = column.nextInt();
-
-                    if(Character.isDigit(ligne)||Character.isDigit(colonne)){
                         if (matrix[ligne][colonne] == 0) {
                             matrix[ligne][colonne] = turn;
                             printBoard();
@@ -58,10 +55,7 @@ public class select_case_joueur {
                             System.out.println("il existe deja un joueur veuillez vous placez autre part dans le tableau joueur2");
                             printBoard();
                         }
-                    } else {
-                        System.out.println(" freritos c pas un chifre");
-                        printBoard();
-                    }
+
             }
 
         }
@@ -129,7 +123,7 @@ public class select_case_joueur {
             for (int j = 0; j < longueur; j++) {
 
                 list.add(matrix[j][longueur2-j]);
-                System.out.println(list);
+                //System.out.println(list);
 
             }
             long veri = list.stream().distinct().count();
@@ -139,6 +133,34 @@ public class select_case_joueur {
             }
         }
 
+        //check egalité
+        List<Integer> finale = new ArrayList<Integer>();
+        for (int i = 0; i < longueur; i++) {
+            for (int j = 0; j < longueur; j++) {
+
+                finale.add(matrix[i][j]);
+                //System.out.println(list);
+                if (matrix[i][j] != 0){
+                    tkt = tkt + 1;
+                    Égalité = true;
+                } else {
+                    nonÉgalité = true;
+                }
+                if (tkt == 45){
+                    System.out.println("Égalité");
+                    vainqueur=3;
+                } else {
+                }
+
+
+
+            }
+            long veri = finale.stream().distinct().count();
+            if (veri == 1 && (finale.get(0) == 1 || finale.get(0) == 2)) {
+                System.out.println("joueur " + finale.get(0) + " ganger !!!!!!!!");
+                vainqueur = finale.get(turn);
+            }
+        }
 
     }
 
