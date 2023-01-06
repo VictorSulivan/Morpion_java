@@ -1,5 +1,7 @@
 import com.sun.source.tree.WhileLoopTree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class select_case_joueur {
@@ -33,7 +35,7 @@ public class select_case_joueur {
 
                 matrix[ligne][colonne] = turn;
                 printBoard();
-                /*checkWinnerline();*/
+                checkWinnerline();
                 turn=2;
 
 
@@ -48,32 +50,51 @@ public class select_case_joueur {
 
                 matrix[ligne][colonne] = turn;
                 printBoard();
-                /*checkWinnerline();*/
+                checkWinnerline();
                 turn = 1;
 
             }
         }
 
     }
-    static void checkWinnerline(int j){
+    /*if (matrix[i][j] == turn) {
 
-        /*for (int i=0;i < matrix.length; i++) {
-            for (j ; j< matrix.length; j++) {
-                if (matrix[i][j]==turn){
-                    checkWinnerline(j+1);
-                    if(matrix[i][matrix.length-1]==turn)
-                        System.out.println("le joueur "+turn+" a gagné bien joué");
-                        vainqueur=turn;
+    }*/
+    static void checkWinnerline() {
+        int longueur = matrix.length;
 
-                    }else{
+        //check horizontal
+        for (int i = 0; i < longueur; i++) {
+            List<Integer> list = new ArrayList<Integer>();
+            for (int j = 0; j < longueur; j++) {
 
-                        break;
-                    }
-                }
-            }*/
+                list.add(matrix[i][j]);
+                //System.out.println(list);
 
+            }
+            long veri = list.stream().distinct().count();
+            if (veri == 1 && (list.get(0) == 1 || list.get(0) == 2)) {
+                System.out.println("joueur " + list.get(0) + " ganger !!!!!!!!");
+                vainqueur = list.get(turn);
+            }
         }
 
+        // check vertical
+        for (int i = 0; i < longueur; i++) {
+            List<Integer> list = new ArrayList<Integer>();
+            for (int j = 0; j < longueur; j++) {
+
+                list.add(matrix[j][i]);
+                System.out.println(list);
+
+            }
+            long veri = list.stream().distinct().count();
+            if (veri == 1 && (list.get(0) == 1 || list.get(0) == 2)) {
+                System.out.println("joueur " + list.get(0) + " ganger !!!!!!!!");
+                vainqueur = list.get(turn);
+            }
+        }
+    }
 
     static void createBoard() {
 
