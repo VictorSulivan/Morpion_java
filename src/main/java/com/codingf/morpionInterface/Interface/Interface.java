@@ -14,6 +14,8 @@ public class Interface {
 
         final boolean[] joueur1 = {true};
         final boolean[] fin = {false};
+        final boolean[] egalité = {true};
+
 
 
 
@@ -116,100 +118,156 @@ public class Interface {
 
 
         JLabel[] cases = new JLabel[11];
-        for (int i = 0 ; i < 11; i++) {
+        final int[] s = {0};
+        for (final int[] i = {0}; i[0] < 11; i[0]++) {
 
-            cases[i] = new JLabel(""+i);
-            cases[i].setBounds((i % 3) * 100, (i / 3) * 100, 100, 100);
-            cases[i].setHorizontalAlignment(JLabel.CENTER);
-            cases[i].setVerticalAlignment(JLabel.CENTER);
-            frame.add(cases[i]);
-            final int index = i;
-            if (i==9) {
+            cases[i[0]] = new JLabel(""+ i[0]);
+            cases[i[0]].setBounds((i[0] % 3) * 100, (i[0] / 3) * 100, 100, 100);
+            cases[i[0]].setHorizontalAlignment(JLabel.CENTER);
+            cases[i[0]].setVerticalAlignment(JLabel.CENTER);
+            frame.add(cases[i[0]]);
+            final int[] index = {i[0]};
+            if (i[0] ==9) {
                 cases[9].setText("JOUEUR O DOIT JOUER");
                 cases[9].setBounds(35, 270, 300, 50);
             }
-            if (i==10){
+            if (i[0] ==10){
                 cases[10].setText("Recommencer");
                 cases[10].setBounds(0, 235, 300, 200);
             }
-            cases[i].addMouseListener(new MouseAdapter() {
+            cases[i[0]].addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if (joueur1[0] == true && index != 9 && cases[index].getText() != "X" && cases[index].getText() != "O" && fin[0] == false) {
-                        cases[index].setText("O");
+                    if (joueur1[0] == true && index[0] != 9 && cases[index[0]].getText() != "X" && cases[index[0]].getText() != "O" && fin[0] == false) {
+                        cases[index[0]].setText("O");
+                        System.out.println("//O PLACÉ");
                         joueur1[0] = false;
                         cases[9].setText("JOUEUR X DOIT JOUER");
+                        s[0]++;
 
-                    } else if (joueur1[0] == false && index != 9 && cases[index].getText() != "X" && cases[index].getText() != "O" && fin[0] == false) {
-                        cases[index].setText("X");
+                    } else if (joueur1[0] == false && index[0] != 9 && cases[index[0]].getText() != "X" && cases[index[0]].getText() != "O" && fin[0] == false) {
+                        cases[index[0]].setText("X");
+                        System.out.println("\\\\X PLACÉ");
                         joueur1[0] = true;
                         cases[9].setText("JOUEUR O DOIT JOUER");
+                        s[0]++;
                     }
 
                     //CONDITION DE VICTOIRE À L'HORIZONTALE
-                    if (cases[0].getText().equals(cases[1].getText()) && cases[1].getText().equals(cases[2].getText()) && !cases[0].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[0].getText() + " a gagné !");
+                    if (cases[0].getText().equals(cases[1].getText()) && cases[1].getText().equals(cases[2].getText()) && !cases[0].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [0] [1] [2]");
+                        System.out.println("                                    [ ] [ ] [ ]");
+                        System.out.println("                                    [ ] [ ] [ ]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[0].getText() + " a gagné !");
                         fin[0] = true;
+                        egalité[0] = false;
 
 
 
                     }
-                    if (cases[3].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[5].getText()) && !cases[3].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[3].getText() + " a gagné !");
+                    if (cases[3].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[5].getText()) && !cases[3].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [ ] [ ] [ ]");
+                        System.out.println("                                    [3] [4] [5]");
+                        System.out.println("                                    [ ] [ ] [ ]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[3].getText() + " a gagné !");
                         fin[0] = true;
+                        egalité[0] = false;
 
                     }
-                    if (cases[6].getText().equals(cases[7].getText()) && cases[7].getText().equals(cases[8].getText()) && !cases[6].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[6].getText() + " a gagné !");
+                    if (cases[6].getText().equals(cases[7].getText()) && cases[7].getText().equals(cases[8].getText()) && !cases[6].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [ ] [ ] [ ]");
+                        System.out.println("                                    [ ] [ ] [ ]");
+                        System.out.println("                                    [6] [7] [8]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[6].getText() + " a gagné !");
                         fin[0] = true;
+                        egalité[0] = false;
 
                     }
                     //CONDITION DE VICTOIRE À L'HORIZONTALE
 
                     //CONDITION DE VICTOIRE À LA VERTICALE
-                    if (cases[0].getText().equals(cases[3].getText()) && cases[3].getText().equals(cases[6].getText()) && !cases[0].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[0].getText() + " a gagné !");
+                    if (cases[0].getText().equals(cases[3].getText()) && cases[3].getText().equals(cases[6].getText()) && !cases[0].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [0] [ ] [ ]");
+                        System.out.println("                                    [3] [ ] [ ]");
+                        System.out.println("                                    [6] [ ] [ ]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[0].getText() + " a gagné !");
                         fin[0] = true;
+                        egalité[0] = false;
 
                     }
-                    if (cases[1].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[7].getText()) && !cases[1].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[1].getText() + " a gagné !");
+                    if (cases[1].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[7].getText()) && !cases[1].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [ ] [1] [ ]");
+                        System.out.println("                                    [ ] [4] [ ]");
+                        System.out.println("                                    [ ] [7] [ ]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[1].getText() + " a gagné !");
                         fin[0] = true;
+                        egalité[0] = false;
 
                     }
-                    if (cases[2].getText().equals(cases[5].getText()) && cases[5].getText().equals(cases[8].getText()) && !cases[2].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[2].getText() + " a gagné !");
+                    if (cases[2].getText().equals(cases[5].getText()) && cases[5].getText().equals(cases[8].getText()) && !cases[2].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [ ] [ ] [2]");
+                        System.out.println("                                    [ ] [ ] [5]");
+                        System.out.println("                                    [ ] [ ] [8]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[2].getText() + " a gagné !");
                         fin[0] = true;
+                        egalité[0] = false;
 
                     }
                     //CONDITION DE VICTOIRE À LA VERTICALE
 
                     //CONDITION DE VICTOIRE EN DIAGONALE
-                    if (cases[0].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[8].getText()) && !cases[0].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[0].getText() + " a gagné !");
+                    if (cases[0].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[8].getText()) && !cases[0].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [0] [ ] [ ]");
+                        System.out.println("                                    [ ] [4] [ ]");
+                        System.out.println("                                    [ ] [ ] [8]");
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[0].getText() + " a gagné !");
                         fin[0] = true;
-
+                        egalité[0] = false;
                     }
-                    if (cases[2].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[6].getText()) && !cases[2].getText().equals("")) {
-                        System.out.println("Le joueur " + cases[2].getText() + " a gagné !");
+                    if (cases[2].getText().equals(cases[4].getText()) && cases[4].getText().equals(cases[6].getText()) && !cases[2].getText().equals("") && fin[0] == false) {
+                        System.out.println("VICTOIRE JOUEUR "+cases[0].getText()+ " SUR LES CASES -->");
+                        System.out.println("                                    [ ] [ ] [2]");
+                        System.out.println("                                    [ ] [4] [ ]");
+                        System.out.println("                                    [6] [ ] [ ]");
+
                         cases[9].setText("PARTIE FINIE / Le joueur " + cases[2].getText() + " a gagné !");
+                        fin[0] = true;
+                        egalité[0] = false;
+                    }
+                    //CONDITION DE VICTOIRE EN DIAGONALE
+
+                    //ÉGALITÉ GRILLE PLEINE
+                    if (s[0] == 9 && egalité[0]== true && fin[0] == false){
+                        System.out.println("ÉGALITÉ GRILLE PLEINE -->");
+                        System.out.println("                         [ ] [ ] [ ]");
+                        System.out.println("                         [ ] [ ] [ ]");
+                        System.out.println("                         [ ] [ ] [ ]");
+
+                        cases[9].setText("PARTIE FINIE / ÉGALITÉ GRILLE PLEINE");
                         fin[0] = true;
 
                     }
+                    //ÉGALITÉ GRILLE PLEINE
 
-
-                    if (index==10){
+                    //RECOMMENCER
+                    if (index[0] ==10){
+                        System.out.println("PARTIE RECOMMENCÉE");
                         printBoard();
-                        JOptionPane.showMessageDialog(null, "La partie recommence");
                     }
-                    //CONDITION DE VICTOIRE EN DIAGONALE
+                    //RECOMMENCER
 
 
                 }
